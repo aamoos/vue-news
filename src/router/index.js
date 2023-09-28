@@ -9,7 +9,7 @@ import ItemView from "../views/ItemView.vue";
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
-  mode: "history",          //URL에 #붙는거 없애줌
+  mode: "history", //URL에 #붙는거 없애줌
   routes: [
     {
       path: "/",
@@ -37,6 +37,10 @@ export const router = new VueRouter({
     {
       path: "/item",
       component: ItemView,
+    },
+    {
+      path: "/user/:id",
+      component: UserView,
     },
   ],
 });
