@@ -23,12 +23,6 @@
 
       </div>
     </section>
-
-    <!-- {{ this.$store.state.item }} -->
-    <!-- <p>{{ this.$store.state.item.title }}</p>
-    <div>
-      {{ this.$store.state.item.content }}
-    </div> -->
   </div>
 </template>
 
