@@ -22,13 +22,16 @@
             </template>
           </p>
           <small class="link-text">
-             {{ item.time_ago }} by
-             <router-link 
-                v-if="item.user"
-                v-bind:to="`/user/${item.user}`" class="link-text">{{ item.user }}</router-link>
-              <a :href="item.url" v-else>
-                {{ item.domain }}
-              </a>
+            {{ item.time_ago }} by
+            <router-link
+              v-if="item.user"
+              v-bind:to="`/user/${item.user}`"
+              class="link-text"
+              >{{ item.user }}</router-link
+            >
+            <a :href="item.url" v-else>
+              {{ item.domain }}
+            </a>
           </small>
         </div>
       </li>
@@ -38,36 +41,24 @@
 
 <script>
 export default {
-    created(){
-        this.$store.dispatch('FETCH_NEWS');
-        const name = this.$route.name;
-        if(name === 'news'){
-          this.$store.dispatch('FETCH_NEWS');
-        }else if(name === 'ask'){
-          this.$store.dispatch('FETCH_ASK');
-        }else if(name === 'jobs'){
-          this.$store.dispatch('FETCH_JOBS');
-        }
-    },
-
-    computed: {
-      // eslint-disable-next-line vue/return-in-computed-property
-      listItems(){
-        const name = this.$route.name;
-        if(name === 'news'){
-          return this.$store.state.news;
-        }else if(name === 'ask'){
-          return this.$store.state.ask;
-        }else if(name === 'jobs'){
-          return this.$store.state.jobs;
-        }
+  computed: {
+    // eslint-disable-next-line vue/return-in-computed-property
+    listItems() {
+      const name = this.$route.name;
+      if (name === "news") {
+        return this.$store.state.news;
+      } else if (name === "ask") {
+        return this.$store.state.ask;
+      } else if (name === "jobs") {
+        return this.$store.state.jobs;
       }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
-.news-list{
+.news-list {
   margin: 0;
   padding: 0;
 }
@@ -88,11 +79,11 @@ export default {
   color: #42b883;
 }
 
-.news-title{
+.news-title {
   margin: 0;
 }
 
-.link-text{
+.link-text {
   color: #828282;
 }
 </style>

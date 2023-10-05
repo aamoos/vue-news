@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import ToolBar from './components/ToolBar.vue'
+import ToolBar from "./components/ToolBar.vue";
 
 /* eslint-disable */
-export default  {
+export default {
   components: {
     ToolBar,
-  }
-}
+  },
+};
 </script>
 
 <style>
@@ -24,26 +24,28 @@ body {
   margin: 0;
 }
 
-a{
+a {
   color: #34495e;
   text-decoration: none;
 }
 
-a:hover{
+a:hover {
   color: #42b883;
   text-decoration: underline;
 }
 
-a.router-link-exact-active{
+a.router-link-exact-active {
   text-decoration: underline;
 }
 
 /* Router Transition */
-.page-enter-active, .page-leave-active {
-  transition: opacity .5s;
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
 }
 
-.page-enter, .page-leave-to{
+.page-enter,
+.page-leave-to {
   opacity: 0;
 }
 </style>
