@@ -6,6 +6,8 @@ import JobsView from "../views/JobsView.vue";
 import UserView from '../views/UserView.vue';
 import ItemView from '../views/ItemView.vue';
 // import CreateListView from "../views/CreateListView";
+import bus from "../utils/bus.js";
+import { store } from "../store/index.js";
 
 Vue.use(VueRouter);
 
@@ -22,6 +24,21 @@ export const router = new VueRouter({
       name: "news",
       // component: CreateListView("NewsView"),
       component: NewsView,
+
+      //to 이동할 url, from 현재 위치, next function
+      beforeEnter: (to, from, next) => {
+         bus.$emit("start:spinner");
+         store
+           .dispatch("FETCH_LIST", to.name)
+           .then(() => {
+             console.log("fetched");
+             bus.$emit("end:spinner");
+             next();
+           })
+           .catch((error) => {
+             console.log(error);
+           });
+      },
     },
     {
       path: "/ask",
