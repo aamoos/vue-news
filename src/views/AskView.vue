@@ -13,8 +13,8 @@ export default {
     ListItem,
   },
   mixins: [ListMixin],
+  // mounted() {
+  //   bus.$emit("end:spinner");
+  // }
 };
 </script>
-
-<style>
-</style>

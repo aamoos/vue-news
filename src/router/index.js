@@ -27,17 +27,16 @@ export const router = new VueRouter({
 
       //to 이동할 url, from 현재 위치, next function
       beforeEnter: (to, from, next) => {
-         bus.$emit("start:spinner");
-         store
-           .dispatch("FETCH_LIST", to.name)
-           .then(() => {
-             console.log("fetched");
-             bus.$emit("end:spinner");
-             next();
-           })
-           .catch((error) => {
-             console.log(error);
-           });
+        bus.$emit("start:spinner");
+        store
+          .dispatch("FETCH_LIST", to.name)
+          .then(() => {
+            console.log("fetched");
+            next();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       },
     },
     {
@@ -45,12 +44,37 @@ export const router = new VueRouter({
       name: "ask",
       // component: CreateListView("AskView"),
       component: AskView,
+      //to 이동할 url, from 현재 위치, next function
+      beforeEnter: (to, from, next) => {
+        bus.$emit("start:spinner");
+        store
+          .dispatch("FETCH_LIST", to.name)
+          .then(() => {
+            console.log("fetched");
+            next();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      },
     },
     {
       path: "/jobs",
       name: "jobs",
       // component: CreateListView("JobsView"),
       component: JobsView,
+      beforeEnter: (to, from, next) => {
+        bus.$emit("start:spinner");
+        store
+          .dispatch("FETCH_LIST", to.name)
+          .then(() => {
+            console.log("fetched");
+            next();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      },
     },
     {
       path: "/user",
